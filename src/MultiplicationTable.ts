@@ -13,6 +13,7 @@ export class MultiplicationTable {
 
     const render = multipleExpression.map(row =>
       row.map(({ factor1, factor2, product }) => `${factor1}*${factor2}=${product}`).join('  ')).join('\n')
+
     const stringArray: string[][] = []
     const row = (render.split('\n'))
     for (let kk = 0; kk <= row.length - 1; kk++) {
@@ -33,6 +34,9 @@ export class MultiplicationTable {
       for (let k = stringArray.length - 1; k >= s; k--) {
         if (stringArray[k][s].length - lastRowElementNumber === -1 ) {
           stringArray[k][s] = stringArray[k][s] + ' '
+        }
+        if (stringArray[k][s].length - lastRowElementNumber === -2 ) {
+          stringArray[k][s] = stringArray[k][s] + '  '
         }
       }
 
